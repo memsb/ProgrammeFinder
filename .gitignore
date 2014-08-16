@@ -1,0 +1,7 @@
+.idea/
+.vagrant/
+bin/
+vendor/
+composer.lock
+*.iml
+*~
