@@ -46,14 +46,16 @@ class Episode
     }
 
     /**
-     * @param $size
      * @return mixed
      */
-    public function getImage($size)
+    public function getImage()
     {
-        return str_replace('$recipe', $size, $this->image);
+        return str_replace('$recipe', '96x54', $this->image);
     }
 
+    /**
+     * @return bool
+     */
     public function hasImage()
     {
         return !empty($this->image);

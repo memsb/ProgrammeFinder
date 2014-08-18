@@ -91,7 +91,7 @@ apache:
             docroot: /var/www/web
             port: '80'
             setenv:
-                - 'APP_ENV dev'
+                - 'APP_ENV development'
                 - 'APP_DEBUG true'
             override:
                 - All
@@ -208,4 +208,3 @@ rabbitmq:
     install: 0
     settings:
         port: '5672'
-
