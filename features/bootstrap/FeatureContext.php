@@ -32,6 +32,14 @@ class FeatureContext extends MinkContext
     }
 
     /**
+     * @Given /^I wait (\d+) second$/
+     */
+    public function iWaitSecond($arg1)
+    {
+        $this->getSession()->wait($duration, '(0 === jQuery.active)');
+    }
+
+    /**
      * @Given /^I am on a Web Page$/
      */
     public function iAmOnAWebPage()

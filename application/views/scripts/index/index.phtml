@@ -3,25 +3,29 @@
     <title>Programme Finder</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/ProgrammeFinder.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/search.js"></script>
 </head>
 <body>
 <div class="container">
     <h2>Programme Finder</h2>
 
-    <div id="application">
+    <!-- pass this to the javascript -->
+    <?php echo $this->url(array('controller' => 'index', 'action' => 'search', 'limit' => 10, 'query' => '')) ?>
 
-        <form name="programme-finder">
-            <input type="text" name="search" maxlength="50">
+    <!-- extract to partial -->
+    <div class="episode-search">
 
-            <button name="submit" type="submit">Add</button>
+        <form name="episode-search-form">
+            <input type="text" class="episode-search-field" maxlength="50">
+
+            <div class="episode-search-button"><span class="glyphicon glyphicon-search"></span></div>
         </form>
 
-        <div id="results">
-            <ul>
-                <li>The Archers</li>
-            </ul>
+        <div class="episode-search-results">
+            <ul></ul>
         </div>
     </div>
 
