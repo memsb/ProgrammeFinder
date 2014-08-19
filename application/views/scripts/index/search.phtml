@@ -1,23 +1,23 @@
-<?php foreach ($this->episodes as $episode) : ?>
-    <li>
-        <div>
-            <a href="http://<?= $episode->getLink() ?>">
-                <?php if ($episode->hasImage()) : ?>
-                    <span>
+<?php if(empty($this->episodes)) : ?>
+    <li>no results</li>
+<?php else :
+    foreach ($this->episodes as $episode) : ?>
+        <li>
+            <a href="http://<?= $this->escape($episode->getLink()) ?>">
+                <span>
                     <?=
                     $this->formImage(
                         '',
                         '',
                         array(
-                            'src' => $episode->getImage(),
+                            'src' => $this->imageChef($episode->getImage(), 96, 54),
                             'alt' => $episode->getTitle() . ' image',
                         )
                     );
                     ?>
-                    </span>
-                <?php endif ?>
-                <span><?= $episode->getTitle() ?></span>
+                </span>
+                <span><?= $this->escape($episode->getTitle()) ?></span>
             </a>
-        </div>
-    </li>
-<?php endforeach ?>
+        </li>
+    <?php endforeach;
+endif ?>

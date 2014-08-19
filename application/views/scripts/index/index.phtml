@@ -1,33 +1,24 @@
 <html>
 <head>
-    <title>Programme Finder</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/ProgrammeFinder.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="js/search.js"></script>
+    <title>Episode Search</title>
+
+    <!-- style sheets -->
+    <?= $this->headLink()->appendStylesheet('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'); ?>
+    <?= $this->headLink()->appendStylesheet('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'); ?>
+    <?= $this->headLink()->appendStylesheet('css/EpisodeSearch.css'); ?>
+
+    <!-- javascript -->
+    <?= $this->headScript()->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 'text/javascript'); ?>
+    <?= $this->headScript()->prependFile('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js', 'text/javascript'); ?>
+    <?= $this->headScript()->prependFile('js/require.js', 'text/javascript'); ?>
+
 </head>
 <body>
 <div class="container">
-    <h2>Programme Finder</h2>
+    <h2>Episode Search</h2>
 
-    <!-- pass this to the javascript -->
-    <?php echo $this->url(array('controller' => 'index', 'action' => 'search', 'limit' => 10, 'query' => '')) ?>
-
-    <!-- extract to partial -->
-    <div class="episode-search">
-
-        <form name="episode-search-form">
-            <input type="text" class="episode-search-field" maxlength="50">
-
-            <div class="episode-search-button"><span class="glyphicon glyphicon-search"></span></div>
-        </form>
-
-        <div class="episode-search-results">
-            <ul></ul>
-        </div>
-    </div>
+    <!--Episode search widget that plays nicely with other widgets on page-->
+    <?php echo $this->partial('index/searchWidget.phtml'); ?>
 
     <!--Footer-->
     <hr>

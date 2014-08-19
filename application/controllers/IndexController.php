@@ -10,11 +10,11 @@ class IndexController extends Zend_Controller_Action
 
     public function searchAction()
     {
-        $filter = new \ProgrammeFinder\Filter();
+        $filter = new \EpisodeSearch\Filter();
         $filter->setPerPage($this->getLimit());
         $filter->setQuery($this->getQuery());
 
-        $finder = new \ProgrammeFinder\Finder($filter);
+        $finder = new \EpisodeSearch\Finder($filter);
         $this->view->episodes = $finder->getEpisodes();
     }
 

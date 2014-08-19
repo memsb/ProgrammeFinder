@@ -76,7 +76,7 @@ apache:
     settings:
         user: www-data
         group: www-data
-        default_vhost: true
+        default_vhost: false
         manage_user: false
         manage_group: false
         sendfile: 0
@@ -85,13 +85,13 @@ apache:
         - rewrite
     vhosts:
         8vp0ABovodyy:
-            servername: programmefinder.dev
+            servername: episodesearch.dev
             serveraliases:
                 - www.vagrantbox.dev
-            docroot: /var/www/web
+            docroot: /vagrant/public
             port: '80'
             setenv:
-                - 'APP_ENV development'
+                - 'APPLICATION_ENV development'
                 - 'APP_DEBUG true'
             override:
                 - All
@@ -110,17 +110,17 @@ nginx:
     install: 0
     vhosts:
         HEskfDKlUgfk:
-            server_name: programmefinder.dev
+            server_name: episodesearch.dev
             server_aliases:
-                - www.programmefinder.dev
-            www_root: /var/www/programmefinder.dev
+                - www.episodesearch.dev
+            www_root: /var/www/episodesearch.dev
             listen_port: '80'
             index_files:
                 - index.html
                 - index.htm
                 - index.php
             envvars:
-                - 'APP_ENV dev'
+                - 'APPLICATION_ENV development'
             ssl_cert: ''
             ssl_key: ''
 php:
@@ -133,6 +133,7 @@ php:
             - cli
             - intl
             - mcrypt
+            - curl
         pear: {  }
         pecl:
             - pecl_http
@@ -140,6 +141,7 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
+        zend_extension: /usr/local/php/modules/xdebug.so
     timezone: UTC
 xdebug:
     install: '1'

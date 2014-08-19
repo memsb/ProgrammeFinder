@@ -7,11 +7,11 @@ class EpisodesHelperTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->mockEpisodeHelper = $this->getMockBuilder('ProgrammeFinder\Helpers\Episode')
+        $this->mockEpisodeHelper = $this->getMockBuilder('EpisodeSearch\Helpers\Episode')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->episodesHelper = new ProgrammeFinder\Helpers\Episodes($this->mockEpisodeHelper);
+        $this->episodesHelper = new EpisodeSearch\Helpers\Episodes($this->mockEpisodeHelper);
     }
 
     public function testExtractionOfEpisodes()
@@ -27,7 +27,7 @@ class EpisodesHelperTest extends PHPUnit_Framework_TestCase
 XML;
         $this->mockEpisodeHelper->expects($this->exactly(3))
             ->method('getEpisode')
-            ->will($this->returnValue(new \ProgrammeFinder\Episode()));
+            ->will($this->returnValue(new \EpisodeSearch\Episode()));
 
         $episodes = $this->episodesHelper->getEpisodes($string);
         $this->assertEquals(3, count($episodes));

@@ -15,7 +15,7 @@
         "bin-dir": "bin/"
     },
     "autoload": {
-        "psr-0": { "ProgrammeFinder": "application/models/" }
+        "psr-0": { "EpisodeSearch": "application/models/" }
     },
     "authors": [
         {

@@ -2,12 +2,12 @@
 
 class FilterTest extends PHPUnit_Framework_TestCase
 {
-    /** @var \ProgrammeFinder\Filter */
+    /** @var \EpisodeSearch\Filter */
     protected $filter;
 
     public function setUp()
     {
-        $this->filter = new \ProgrammeFinder\Filter();
+        $this->filter = new \EpisodeSearch\Filter();
     }
 
     public function testUnconfiguredFilterProducesValidUri()
@@ -21,10 +21,10 @@ class FilterTest extends PHPUnit_Framework_TestCase
 
     public function testSettingAvailability()
     {
-        $this->filter->setSearchAvailability(\ProgrammeFinder\ION::DISCOVERABLE);
+        $this->filter->setSearchAvailability(\EpisodeSearch\ION::DISCOVERABLE);
         $uri = $this->filter->getUri();
 
-        $this->assertContains('search_availability/' . \ProgrammeFinder\ION::DISCOVERABLE, $uri);
+        $this->assertContains('search_availability/' . \EpisodeSearch\ION::DISCOVERABLE, $uri);
     }
 
     /**

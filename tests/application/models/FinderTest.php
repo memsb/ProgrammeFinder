@@ -7,11 +7,11 @@ class FinderTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->mockFilter = $this->getMockBuilder('ProgrammeFinder\Filter')
+        $this->mockFilter = $this->getMockBuilder('EpisodeSearch\Filter')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->mockEpisodesHelper = $this->getMockBuilder('ProgrammeFinder\Helpers\Episodes')
+        $this->mockEpisodesHelper = $this->getMockBuilder('EpisodeSearch\Helpers\Episodes')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -22,7 +22,7 @@ class FinderTest extends PHPUnit_Framework_TestCase
 
     public function testGettingEpisodes()
     {
-        $finder = $this->getMockBuilder('ProgrammeFinder\Finder')
+        $finder = $this->getMockBuilder('EpisodeSearch\Finder')
             ->setConstructorArgs(array($this->mockFilter, $this->mockEpisodesHelper))
             ->setMethods(array('getData'))
             ->getMock();

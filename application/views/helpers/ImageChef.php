@@ -1,9 +1,9 @@
 <?php
 
-class View_Helper_ImageChef extends Zend_View_Helper_Abstract
+class Zend_View_Helper_ImageChef extends Zend_View_Helper_Abstract
 {
-    public function imageChef()
+    public function imageChef($url, $width, $height)
     {
-        return 'testing';
+        return str_replace('$recipe', "{$width}x{$height}", $url);
     }
 }

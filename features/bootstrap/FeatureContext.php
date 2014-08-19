@@ -7,7 +7,8 @@ use Behat\Behat\Context\ClosuredContextInterface,
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 
-use Behat\MinkExtension\Context\MinkContext;
+use Behat\MinkExtension\Context\MinkContext,
+    Behat\Mink\Driver\Selenium2Driver;
 
 //
 // Require 3rd-party libraries here:
@@ -28,103 +29,15 @@ class FeatureContext extends MinkContext
      */
     public function __construct(array $parameters)
     {
-        // Initialize your context here
     }
 
     /**
-     * @Given /^I wait (\d+) second$/
+     * @Given /^I wait for the results$/
      */
-    public function iWaitSecond($arg1)
+    public function iWaitForTheResults()
     {
-        $this->getSession()->wait($duration, '(0 === jQuery.active)');
+        $this->getSession()->wait(5000,
+            "$('.episode-search-results ul').children().length > 0"
+        );
     }
-
-    /**
-     * @Given /^I am on a Web Page$/
-     */
-    public function iAmOnAWebPage()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @When /^I type a Search String into a Text Box and Submit$/
-     */
-    public function iTypeASearchStringIntoATextBoxAndSubmit()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then /^I should be shown Results$/
-     */
-    public function iShouldBeShownResults()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Given /^the Search String returns matches for brand name$/
-     */
-    public function theSearchStringReturnsMatchesForBrandName()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Given /^there are available episodes for those brand names$/
-     */
-    public function thereAreAvailableEpisodesForThoseBrandNames()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then /^these episodes should be returned as results$/
-     */
-    public function theseEpisodesShouldBeReturnedAsResults()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Given /^the Search String returns no matches for brand name$/
-     */
-    public function theSearchStringReturnsNoMatchesForBrandName()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then /^I should be shown a \'([^\']*)\' message$/
-     */
-    public function iShouldBeShownAMessage($arg1)
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @When /^I begin typing a Search String into a Text Box and stop$/
-     */
-    public function iBeginTypingASearchStringIntoATextBoxAndStop()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Given /^there are brand names that contain the string I have typed$/
-     */
-    public function thereAreBrandNamesThatContainTheStringIHaveTyped()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then /^I should be dynamically shown a list of those brands$/
-     */
-    public function iShouldBeDynamicallyShownAListOfThoseBrands()
-    {
-        throw new PendingException();
-    }
-
 }

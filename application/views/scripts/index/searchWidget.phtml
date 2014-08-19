@@ -1,11 +1,21 @@
+<!-- Widget specific JS-->
+<script type="text/javascript">
+    define('params', {
+        searchUrl: "<?= $this->url(array('limit' => 5, 'query' => ''), 'search') ?>"
+    });
+    require(["js/search"], function (search) {});
+</script>
+
 <div class="episode-search">
 
-    <form name="episode-search-form">
-        <input type="text" class="episode-search-field" maxlength="50">
-        <div class="episode-search-button"><span class="glyphicon glyphicon-search"></span></div>
-    </form>
+        <div class="episode-search-form">
+            <input type="text" class="episode-search-field" id="searchBox" maxlength="50" placeholder="Find an episode..."/>
 
-    <div class="episode-search-results">
-        <ul></ul>
-    </div>
+            <button class="episode-search-button" id="search"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+
+        <div class="episode-search-results">
+            <ul></ul>
+        </div>
+
 </div>

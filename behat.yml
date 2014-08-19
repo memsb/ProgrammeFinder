@@ -1,6 +1,8 @@
 default:
-    extensions:
-        Behat\MinkExtension\Extension:
-            base_url: http://localhost/Workspace/ProgrammeFinder/web/
-            goutte: ~
-            selenium2: ~
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://10.10.10.10/
+      default_session: selenium2
+      browser_name: 'firefox'
+      selenium2:
+        capabilities: { "browser": "firefox", "version": "31"}
