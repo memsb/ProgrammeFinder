@@ -3,24 +3,10 @@ ul {
     padding-left:0;
 }
 
-/*li {*/
-    /*width: 500px;*/
-    /*clear: both;*/
-    /*overflow: auto;*/
-    /*height: 100px;*/
-/*}*/
+.episode-search-button {
+    display: inline;
+}
 
-/*.image-wrapper {*/
-    /*float: left;*/
-    /*display: block;*/
-    /*width: 200px;*/
-/*}*/
-/*.text-wrapper {*/
-    /*float: right;*/
-    /*display: block;*/
-    /*width: 200px;*/
-    /*height: 100%;*/
-/*}*/
-/*.text-wrapper p {*/
-    /*text-align: right;*/
-/*}*/
+li {
+    padding-top: 15px;
+}
